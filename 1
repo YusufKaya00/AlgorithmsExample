@@ -1,0 +1,27 @@
+
+Implement a function that adds two numbers and returns their sum as a binary number. The conversion to binary can happen either before or after the addition.
+
+The returned binary number should be a string.
+
+Examples:
+Input1, Input2 --> Output (Explanation)
+1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
+5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)
+
+
+public class binary {
+
+    public static String addBinary(int num1 , int num2){
+        int sum =  num1+num2;
+
+        return Integer.toBinaryString(sum);
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(addBinary(1,2));
+        System.out.println(addBinary(5,9));
+    }
+
+
+}
