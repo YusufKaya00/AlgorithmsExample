@@ -1,0 +1,22 @@
+Aşağıda, 
+
+public class NegativeSum {
+
+    public static int sumOfNegatives(int[] array, int index) {
+        
+        if (index == array.length) {
+            return 0;
+        }
+
+    
+        int current = (array[index] < 0) ? array[index] : 0;
+
+        
+        return current + sumOfNegatives(array, index + 1);
+    }
+
+    public static void main(String[] args) {
+        int[] numbers = {3, -5, 7, -2, -8, 10};
+        int result = sumOfNegatives(numbers, 0);
+        System.out.println("Negatif sayıların toplamı: " + result
+
