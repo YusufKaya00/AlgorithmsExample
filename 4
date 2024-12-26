@@ -1,0 +1,21 @@
+
+
+
+Write a function that takes any non-negative integer as an argument and returns its digits rearranged in descending order. Essentially, rearrange the digits to form the largest possible number.
+
+
+
+public class DescendingOrder {
+    public static int sortDigitsDescending(int number) {
+        // Convert the number to a string and then to a character array
+        char[] digits = Integer.toString(number).toCharArray();
+
+        // Sort the character array in descending order
+        Arrays.sort(digits);
+
+        // Reverse the sorted array
+        StringBuilder reversed = new StringBuilder(new String(digits)).reverse();
+
+        // Convert the result back to an integer
+        return Integer.parseInt(reversed.toString());
+    }
