@@ -1,0 +1,29 @@
+public class NarsisistikSayi {
+    public static boolean isNarsisistik(int number) {
+        // Sayıyı String olarak alıp basamaklarını ayrıştırıyoruz
+        String numberStr = Integer.toString(number);
+        int basamakSayisi = numberStr.length();
+
+        int toplam = 0;
+        int tempNumber = number;
+
+        // Her bir basamağın basamak sayısı kadar kuvvetini alıp topluyoruz
+        while (tempNumber > 0) {
+            int basamak = tempNumber % 10; // Son basamağı al
+            toplam += Math.pow(basamak, basamakSayisi); // Kuvvet al ve toplama ekle
+            tempNumber /= 10; // Son basamağı at
+        }
+
+        // Toplam, sayının kendisine eşitse narsisistik bir sayıdır
+        return toplam == number;
+    }
+
+    public static void main(String[] args) {
+        // Test için örnek sayılar
+        int sayi1 = 153;
+        int sayi2 = 1652;
+
+        System.out.println(sayi1 + " : " + (isNarsisistik(sayi1) ? "doğru" : "yanlış"));
+        System.out.println(sayi2 + " : " + (isNarsisistik(sayi2) ? "doğru" : "yanlış"));
+    }
+}
