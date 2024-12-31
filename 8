@@ -1,0 +1,24 @@
+public class ReverseWords {
+
+    public static String spinWords(String sentence) {
+      
+        String[] words = sentence.split(" ");
+
+        // Sonuç cümlesi oluşturmak için StringBuilder
+        StringBuilder result = new StringBuilder();
+
+    
+        for (String word : words) {
+            if (word.length() >= 5) {
+                // 5 veya daha fazla harften oluşuyorsa ters çevir
+                result.append(new StringBuilder(word).reverse().toString());
+            } else {
+                // Aksi halde olduğu gibi ekle
+                result.append(word);
+            }
+            result.append(" "); // Kelimeler arasında boşluk ekle
+        }
+
+        
+        return result.toString().trim();
+    }
