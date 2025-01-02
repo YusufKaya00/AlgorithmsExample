@@ -1,0 +1,47 @@
+kendisine parametre olarak gelen n  ile n*n lik spiral matrisi yazınız 
+
+Örnek :
+1 2 3
+8 9 4
+7 6 5
+
+
+
+public class SpiralMatrix {
+
+    public static void generateSpiralMatrix(int n) {
+        // n x n boyutunda bir matris oluştur
+        int[][] matrix = new int[n][n];
+        
+        int value = 1; 
+        int top = 0, bottom = n - 1, left = 0, right = n - 1;
+        
+      
+        while (value <= n * n) {
+            // En üst sırayı doldur
+            for (int i = left; i <= right; i++) {
+                matrix[top][i] = value++;
+            }
+            top++;
+            
+           
+            for (int i = top; i <= bottom; i++) {
+                matrix[i][right] = value++;
+            }
+            right--;
+            
+            
+            for (int i = right; i >= left; i--) {
+                matrix[bottom][i] = value++;
+            }
+            bottom--;
+            
+            for (int i = bottom; i >= top; i--) {
+                matrix[i][left] = value++;
+            }
+            left++;
+        }
+        
+        // Matrisi ekrana yazdır
+        printMatrix(matrix);
+    }
