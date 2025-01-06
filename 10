@@ -1,0 +1,26 @@
+Write a function that takes a sentence as input. For each word in the sentence, move its first letter to the end, and add "ay" to the end of the word. Keep punctuation marks as they are.
+
+public class PigLatinConverter {
+    public static String convertToPigLatin(String sentence) {
+        String[] words = sentence.split(" ");
+        StringBuilder result = new StringBuilder();
+
+        for (String word : words) {
+            if (word.matches("[a-zA-Z]+")) {
+                // Process words without punctuation
+                String pigLatinWord = word.substring(1) + word.charAt(0) + "ay";
+                result.append(pigLatinWord).append(" ");
+            } else {
+                // Keep punctuation unchanged
+                result.append(word).append(" ");
+            }
+        }
+
+        return result.toString().trim();
+    }
+
+    public static void main(String[] args) {
+        String sentence = "Hello World !";
+        System.out.println(convertToPigLatin(sentence)); // Output: elloHay orldWay !
+    }
+}
